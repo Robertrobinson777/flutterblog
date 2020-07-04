@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:blog/post.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:transparent_image/transparent_image.dart';
@@ -63,14 +64,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                 new FlatButton(
                                   child: const Text('READ MORE'),
                                   onPressed: () {
-                                    // Navigator.push(
-                                    //   context,
-                                    //   new MaterialPageRoute(
-                                    //     // builder: (context) => new ReputePost(
-                                    //     //     post: posts[index],
-                                    //     //     aimage: assetsImage),
-                                    //   ),
-                                    // );
+                                    Navigator.push(
+                                      context,
+                                      new MaterialPageRoute(
+                                        builder: (context) => new PostScreen(
+                                            post: posts[index],
+                                            pimg: assetsImage),
+                                      ),
+                                    );
                                   },
                                 ),
                               ],
