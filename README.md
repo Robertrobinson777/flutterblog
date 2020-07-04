@@ -2,6 +2,7 @@
 
 Creating a WordPress App using Flutter
 
+![](screen2.gif)
 
 ## Getting Started
 
