@@ -12,7 +12,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final String apiUrl = "https://robertrobinson.in/wp-json/wp/v2/";
+  // final String apiUrl = "https://robertrobinson.in/wp-json/wp/v2/";
+  final String apiUrl = "https://www.hthirukkumaran.com/wp-json/wp/v2/";
+
   var assetsImage = new AssetImage('assets/640x360.png');
 
   List posts;
@@ -31,31 +33,29 @@ class _HomeScreenState extends State<HomeScreen> {
         appBar: AppBar(
           title: Text('Blog'),
         ),
-        drawer: new Column(
-          children: [
-            pages == null
-                ? CircularProgressIndicator()
-                : ListView.builder(
-                    itemCount: pages == null ? 0 : pages.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return ListTile(
-                        title: Text(
-                          pages[index]["title"]["rendered"],
-                          style: new TextStyle(
-                              fontSize: 18.0, fontWeight: FontWeight.w400),
-                        ),
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            new MaterialPageRoute(
-                              builder: (context) =>
-                                  new PageScreen(url: pages[index]),
-                            ),
-                          );
-                        },
-                      );
-                    })
-          ],
+        drawer: Drawer(
+          child: pages == null
+              ? CircularProgressIndicator()
+              : ListView.builder(
+                  itemCount: pages == null ? 0 : pages.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return ListTile(
+                      title: Text(
+                        pages[index]["title"]["rendered"],
+                        style: new TextStyle(
+                            fontSize: 18.0, fontWeight: FontWeight.w400),
+                      ),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          new MaterialPageRoute(
+                            builder: (context) =>
+                                new PageScreen(url: pages[index]),
+                          ),
+                        );
+                      },
+                    );
+                  }),
         ),
         body: posts == null
             ? CircularProgressIndicator()
